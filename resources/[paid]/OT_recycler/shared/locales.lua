@@ -1,0 +1,23 @@
+Locales = {
+    ['no_recyclables'] = 'You have nothing to recycle.',
+    ['rewards'] = 'Rewards: %s',
+    ['recycle_menu_header'] = 'Recycling',
+    ['no_queue'] = 'You have no materials being recycled',
+    ['finished'] = 'Completed',
+    ['estimated_finish'] = 'Estimated Finish: %s',
+    ['collect_recyclables'] = 'Collect Materials',
+    ['recycle_queue'] = 'Recycling Queue',
+    ['textui_controls'] = '[E] Use Recycler  \n[F] Collect Materials',
+    ['target_use'] = 'Use Recycler',
+    ['target_collect'] = 'Collect Materials',
+    ['recycler_disabled'] = 'The Recycler is disabled, please come back after tsunami',
+    ['recycler_take_long'] = 'This is going to take too long.',
+    ['recycler_unable_remove'] = 'Something went wrong, was unable to remove items',
+    ['recycler_processing'] = 'Some materials are still processing',
+    ['recycler_empty'] = 'You have no materials to collect',
+    ['error'] = 'Something went wrong. could not give %s x %s',
+    ['missing_items'] = 'You do not have enough of this material to recycle',
+    ['quantity_header'] = 'Recycler',
+    ['quantity_label'] = 'Amount',
+    ['quantity_tooltip'] = 'Amount of %s to recycle'
+  }
