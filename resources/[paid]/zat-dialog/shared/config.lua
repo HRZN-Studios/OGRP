@@ -4,7 +4,7 @@ Config.Framework        = "esx" -- "qb"
 Config.Inventory        = "ox" -- "ps", "qb", "ox", "qs"
 Config.FrameworkPseudo  = 'ESX'
 Config.Target           = "ox" -- ox !!!!!!!!! IMPORTANT
-Config.UseInteract      = true
+Config.UseInteract      = false
 Config.Img              = 'ox_inventory/web/images/'
 Config.SpawnPeds        = true -- set it to false if you spawn peds using another script
 Config.Tax = 0.08;
@@ -109,7 +109,7 @@ Config.NPCs = {
         ped         = 's_m_y_garbage',
         anim        = 'CODE_HUMAN_MEDIC_TIME_OF_DEATH',
         coords      =  vector4(-322.08, -1539.33, 26.73, 272.88),
-        job         = "all", -- { ["police"] = 0, ["ambulance"] = 0}  if you are using target
+        job         = {["police"] = 0}, -- { ["police"] = 0, ["ambulance"] = 0}  if you are using target
         gang        = "all", -- { ["ballas"] = 2, ["thelostmc"] = 0}  if you are using target
         groups      = "all", -- { ["police"] = 2, ["ambulance"] = 0}  if you are using intearaction
         firstname   = 'LEO',

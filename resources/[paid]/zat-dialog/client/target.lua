@@ -14,25 +14,22 @@ end
 Citizen.CreateThread(function()
     if not Config.UseInteract then
         for k, v in ipairs(Config.NPCs) do
-            exports['qb-target']:AddBoxZone("NPC_Dialog"..k, vector3(v.coords.x, v.coords.y, v.coords.z+1.0), 2.0, 2.0, {
-            name = "NPC_Dialog"..k,
-            heading = 90.0,
-            debugPoly = false,
-            minZ = v.coords.z - 2.0,
-            maxZ = v.coords.z + 2.0,
-            }, {
+            exports.ox_target:addBoxZone({
+                coords = vec3(v.coords.x, v.coords.y, v.coords.z + 1),
+                size = vec3(1, 1, 2),
+                rotation = 90.0,
+                debug = true,
                 options = {
                     {
-                        type            = 'client',
-                        event           = 'zat-dialog:client:OpenMenu',
-                        label           = _U("dia_tal"), 
-                        icon            = 'fas fa-cash-register',
-                        job             = v.job,
-                        gang            = v.gang,
-                        index           = k,
+                        name = "NPC_Dialog"..k,
+                        event = 'zat-dialog:client:OpenMenu',
+                        icon = 'fas fa-user',
+                        label = _U("dia_tal"),
+                        job = v.job,
+                        gang = v.gang,
+                        index = k,
                     },
-                },
-                distance = 2.5
+                }
             })
         end
     else

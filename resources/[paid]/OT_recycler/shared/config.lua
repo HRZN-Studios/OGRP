@@ -24,9 +24,15 @@ Config.Items = {
 
 Config.Recyclers = {
     {
-        id = 'scrapyard',
-        coords = vector3(2410.07, 3030.69, 47.15),
-        heading = 270.0,
+        id = 'bcgdrecycle',
+        coords = vector3(2038.6409912109, 3192.8120117188, 44.177951812744),
+        heading = 150.3,
+        model = `recycler_model`
+    },
+    {
+        id = 'lsgdrecycle',
+        coords = vector3(-359.01400756836, -1533.98828125, 26.711999893188),
+        heading = -89.9,
         model = `recycler_model`
     }
 }
