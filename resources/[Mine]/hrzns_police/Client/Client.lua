@@ -100,7 +100,7 @@ function createProp(prop)
     local offset = GetEntityCoords(cache.ped) + GetEntityForwardVector(cache.ped) * 3
     lib.requestModel(model)
     local obj = CreateObject(model, offset.x, offset.y, offset.z, false, false, false)
-    local data = exports.hrzns_police:useGizmo(obj)
+    local data = exports.object_gizmo:useGizmo(obj)
     DeleteEntity(obj)
     lib.print.info(data)
     if data.exit == 'done' then
@@ -374,6 +374,10 @@ end)
 -- #ANCHOR - Mugshot Logic
 
 RegisterNetEvent('hrzns_police:mugshot', function(location, copid, copdata, susdata, notes)
+    local Name
+    local Sex
+    local DOB
+    local copname
     local ped = PlayerPedId()
     local suscoords = GetEntityCoords(ped)
     local mug = Config.MugShotLocs[location].Suspectloc.pos
@@ -381,12 +385,15 @@ RegisterNetEvent('hrzns_police:mugshot', function(location, copid, copdata, susd
     if distance < Config.MugShotLocs[location].Suspectloc.MaxDist then
         InMugshot = true
         if Config.Framework == 'QBCore' then
-            local Name = susdata.charinfo.firstname .. ' ' .. susdata.charinfo.lastname
-            local Sex = susdata.charinfo.gender
-            local DOB = susdata.charinfo.birthdate
-            local copname = copdata.charinfo.firstname .. ' ' .. copdata.charinfo.lastname
+            Name = susdata.charinfo.firstname .. ' ' .. susdata.charinfo.lastname
+            Sex = susdata.charinfo.gender
+            DOB = susdata.charinfo.birthdate
+            copname = copdata.charinfo.firstname .. ' ' .. copdata.charinfo.lastname
         elseif Config.Framework == 'ESX' then
-
+            Name = susdata.variables.firstName .. ' ' .. susdata.variables.lastName
+            Sex = susdata.variables.sex
+            DOB = susdata.variables.dateofbirth
+            copname = copdata.variables.firstName .. ' ' .. copdata.variables.lastName
         end
         local ScaleformBoard = LoadScale("mugshot_board_01")
         local RenderHandle = CreateRenderModel("ID_Text", "prop_police_id_text")
@@ -414,7 +421,6 @@ RegisterNetEvent('hrzns_police:mugshot', function(location, copid, copdata, susd
         PushScaleformMovieFunctionParameterInt(math.random(000, 999))
         PushScaleformMovieFunctionParameterInt(116)
         EndScaleformMovieMethod()
-        print(json.encode(Config.MugShotLocs[location].Camera))
         local MugCam = CreateCameraWithParams(Config.MugShotLocs[location].Camera.hash, Config.MugShotLocs[location].Camera.posx, Config.MugShotLocs[location].Camera.posy, Config.MugShotLocs[location].Camera.posz, Config.MugShotLocs[location].Camera.rotx, Config.MugShotLocs[location].Camera.roty, Config.MugShotLocs[location].Camera.rotz, Config.MugShotLocs[location].Camera.fov, Config.MugShotLocs[location].Camera.active, Config.MugShotLocs[location].Camera.rotOrder)
         RenderScriptCams(1, 0, 0, 1, 1)
         Wait(250)
@@ -444,23 +450,22 @@ RegisterNetEvent('hrzns_police:mugshot', function(location, copid, copdata, susd
         loadAnimDict("mp_character_creation@lineup@male_a")
         TaskPlayAnim(ped, "mp_character_creation@lineup@male_a", "loop_raised", 8.0, 8.0, -1, 49, 0, false, false, false)
         Wait(1000)
-        lib.callback('hrzns_police:GetWebHook', function(cb)
-            exports['screenshot-basic']:requestScreenshotUpload(tostring(cb), 'files[]', {encoding = 'jpg'}, function(data)
-                local Response = json.decode(data)
-                local imageURL = Response.attachments[1].url
-                TriggerServerEvent('B1-Police:MugLog', copname, DOB, sex, susname, notes, imageURL)
-            end)
+        exports['screenshot-basic']:requestScreenshotUpload(Config.MugShotOptions.ScreenShotHook, 'files[]', {encoding = 'jpg'}, function(data)
+            local Response = json.decode(data)
+            local imageURL = Response.attachments[1].url
+            print('cb')
+            TriggerServerEvent('hrzns_police:muglog', copname, DOB, Sex, Name, notes, imageURL)
         end)
         Wait(5000)
         DestroyCam(MugCam, 0)
         RenderScriptCams(0, 0, 1, 1, 1)
-        SetFocusEntity(PlayerPed)
-        ClearPedTasksImmediately(PlayerPed)
-        FreezeEntityPosition(PlayerPed, false)
+        SetFocusEntity(ped)
         DeleteObject(Board)
         DeleteObject(BoardOverlay)
         RenderHandle = nil
         InMugshot = false
+        ClearPedTasks(ped)
+        FreezeEntityPosition(ped, false)
     else
         TriggerServerEvent('hrzns_police:SNotify', copid, 'error', 'Police', 'Suspect is too far away from the location')
     end

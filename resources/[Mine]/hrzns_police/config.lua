@@ -1,6 +1,6 @@
 Config = {}
 
-Config.Framwork = 'ESX' -- ESX | QBCore : Only Used for MugShots atm
+Config.Framework = 'ESX' -- ESX | QBCore : Only Used for MugShots atm
 
 Config.MugShotOptions = {
     enabled = true,
@@ -13,12 +13,13 @@ Config.MugShotOptions = {
 
 Config.MugShotLocs = {
     LSPD = {
-        Target = {coords = vec3(368.0, -1601.0, 24.0), size = vec3(1, 1, 1), rotation = 0.0, debug = true, groups = {}},
-        Suspectloc = {pos = vector3(372.51, -1592.84, 24.44), heading= 141.49, MaxDist = 10},
-        Camera = {hash = "DEFAULT_SCRIPTED_CAMERA", posx = 371.52297973633, posy = -1594.1062011719, posz = 25.03999710083, rotx = 0.0, roty = 0.0, rotz = -40.082660675049, fov = 100.0, active = true, rotOrder = 2},
-        BoardHeader = 'Los Santos Police Department',
+        Target = {coords = vec3(-583.75, -943.0, 19.2), size = vec3(0.65, 0.9, 0.55), rotation = 0.0, debug = true, groups = {}},
+        Suspectloc = {pos = vector3(-587.985, -942.404, 18.024), heading= 273.171, MaxDist = 5},
+        Camera = {hash = "DEFAULT_SCRIPTED_CAMERA", posx = -586.19287109375, posy = -942.35559082031, posz = 19.322774887085, rotx = -4.1999106407166, roty = -2.2178102881298e-05, rotz = 90.152450561523, fov = 60.0, active = true, rotOrder = 2},
+        BoardHeader = 'Rebel is a Bitch',
     },
 }
+
 
 Config.JailWalk = true
 

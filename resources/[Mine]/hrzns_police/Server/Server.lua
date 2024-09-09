@@ -1,11 +1,6 @@
 
 -- #SECTION - Callbacks
 
-lib.callback.register('hrzns_police:GetWebHook', function()
-    local cb = Config.MugShotOptions.ScreenShotHook
-    return cb
-end)
-
 lib.callback.register('hrzns_police:GetPlayerData', function()
     local data
 end)
@@ -70,36 +65,46 @@ end)
 -- #SECTION - MugShot Logic
 
 RegisterNetEvent('hrzns_police:mugshotSV', function(location, id, notes)
-    if id == source then 
+    if id == 7 then 
         TriggerClientEvent('hrzns_police:Notify', source, 'error', 'You cannot mug yourself')
     else
         if Config.Framework == 'QBCore' then
-
+            local response
+            local copdata
+            local susdata
+            local copidentifier = GetPlayerIdentifier(source)
+            response = MySQL.query.await('SELECT `charinfo` FROM `players` WHERE `license` = @identifier', {
+                ['@identifier'] = copidentifier
+            })
+            if response then
+                copdata = json.encode(response)
+                print(copdata)
+            end
+            local susidentifier = GetPlayerIdentifier(id)
+            response = MySQL.query.await('SELECT `charinfo` FROM `players` WHERE `license` = @identifier', {
+                ['@identifier'] = susidentifier
+            })
+            if response then
+                susdata = json.encode(response)
+                print(susdata)
+            end
+            TriggerClientEvent('hrzns_police:mugshot', id, location, source, copdata, susdata, notes)
+        elseif Config.Framework == 'ESX' then
+            local source = source
+            print('source '..source)
+            local copdata = ESX.GetPlayerFromId(source)
+            local dumpedTable = ESX.DumpTable(copdata)
+            print('cop '..dumpedTable)
+            local susdata = ESX.GetPlayerFromId(id)
+            dumpedTable = ESX.DumpTable(susdata)
+            print('sus '..dumpedTable)
+            TriggerClientEvent('hrzns_police:mugshot', id, location, source, copdata, susdata, notes)
         end
     end
-    local response
-    local copdata
-    local susdata
-    local copidentifier = GetPlayerIdentifier(source)
-    response = MySQL.query.await('SELECT `charinfo` FROM `players` WHERE `license` = @identifier', {
-        ['@identifier'] = copidentifier
-    })
-    if response then
-        copdata = json.encode(response)
-        print(copdata)
-    end
-    local susidentifier = GetPlayerIdentifier(id)
-    response = MySQL.query.await('SELECT `charinfo` FROM `players` WHERE `license` = @identifier', {
-        ['@identifier'] = susidentifier
-    })
-    if response then
-        susdata = json.encode(response)
-        print(susdata)
-    end
-    TriggerClientEvent('hrzns_police:mugshot', id, location, source, copdata, susdata, notes)
 end)
 
 RegisterNetEvent('hrzns_police:muglog', function(copname, DOB, sex, susname, notes, imageURL)
+    print(copname, DOB, Sex, Name, notes)
     local embedData = {
         {
             ['title'] = Config.MugShotOptions.LogTitle,

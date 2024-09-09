@@ -16,6 +16,7 @@ server_scripts {
 
 shared_scripts {
 	'@ox_lib/init.lua',
+	'@es_extended/imports.lua',
     'config.lua'
 }
 
@@ -24,7 +25,9 @@ files {
 }
 
 dependencies {
-	'ox_lib'
+	'ox_lib',
+	'object_gizmo',
+	'screenshot-basic'
 }
 
 -- Credits
