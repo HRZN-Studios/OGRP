@@ -1,0 +1,41 @@
+<CodeWalkerProject>
+  <Name>New CodeWalker Project</Name>
+  <Version value="1" />
+  <YmapFilenames>
+    <Item>distlodlights_medium015.ymap</Item>
+    <Item>distlodlights_small037.ymap</Item>
+    <Item>hei_kt1_12_strm_0.ymap</Item>
+    <Item>hei_kt1_occl_00.ymap</Item>
+    <Item>hei_kt1_occl_01.ymap</Item>
+    <Item>hei_kt1_occl_03.ymap</Item>
+    <Item>hei_kt1_rd_long_1.ymap</Item>
+    <Item>hei_kt1_rd_strm_2.ymap</Item>
+    <Item>kt1_occl_00.ymap</Item>
+    <Item>kt1_occl_01.ymap</Item>
+    <Item>kt1_occl_03.ymap</Item>
+    <Item>lodlights_medium015.ymap</Item>
+    <Item>lodlights_small037.ymap</Item>
+    <Item>nxp_cs_pd_ext_details.ymap</Item>
+    <Item>nxp_cs_pd_milo_.ymap</Item>
+    <Item>vw_distlodlights_medium015.ymap</Item>
+    <Item>vw_distlodlights_small038.ymap</Item>
+    <Item>vw_lodlights_medium015.ymap</Item>
+    <Item>vw_lodlights_small038.ymap</Item>
+  </YmapFilenames>
+  <YtypFilenames>
+    <Item>koreatown_metadata_007_strm.ytyp</Item>
+    <Item>nxp_cs_pd.ytyp</Item>
+  </YtypFilenames>
+  <YbnFilenames />
+  <YndFilenames />
+  <YnvFilenames />
+  <TrainsFilenames />
+  <ScenarioFilenames>
+    <Item>little_seoul.ymt</Item>
+  </ScenarioFilenames>
+  <AudioRelFilenames />
+  <YdrFilenames />
+  <YddFilenames />
+  <YftFilenames />
+  <YtdFilenames />
+</CodeWalkerProject>

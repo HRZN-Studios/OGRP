@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forge Chat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main>
+      <!-- Chat Start
+    ==================================== -->
+      <section class="chat">
+        <div class="chat__top">
+          <div class="chat__row" id="shortcuts">
+            <label class="custom-radio-btn">
+              <input type="radio" value="/do" name="command" checked />
+              <span>DO</span>
+            </label>
+            <label class="custom-radio-btn">
+              <input type="radio" value="/me" name="command" />
+              <span>ME</span>
+            </label>
+            <label class="custom-radio-btn">
+              <input type="radio" value="/ooc" name="command" />
+              <span>OOC</span>
+            </label>
+            <label class="custom-radio-btn">
+              <input type="radio" value="/global" name="command" />
+              <span>GLOBAL</span>
+            </label>
+            <label class="custom-radio-btn">
+              <input type="radio" value="/anon" name="command" />
+              <span>ANON</span>
+            </label>
+            <label class="custom-radio-btn">
+              <input type="radio" value="/twt" name="command" />
+              <span>TWT</span>
+            </label>
+            <label class="custom-radio-btn">
+              <input type="radio" value="/ems" name="command" />
+              <span>EMS</span>
+            </label>
+            <label class="custom-radio-btn">
+              <input type="radio" value="/trade" name="command" />
+              <span>TRADE</span>
+            </label>
+            <label class="custom-radio-btn">
+              <input type="radio" value="/sheriff" name="command" />
+              <span>SHERIFF</span>
+            </label>
+          </div>
+          <div class="chat__row">
+            <div class="settings-btn">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M4.12516 0.734517C4.12514 0.598642 4.17316 0.466783 4.26137 0.360523C4.34959 0.254263 4.47277 0.179896 4.61075 0.149596C5.52505 -0.0502697 6.47451 -0.0498595 7.38863 0.150796C7.52672 0.180979 7.65004 0.255295 7.73838 0.361566C7.82672 0.467837 7.87483 0.59976 7.87484 0.735717V1.84377C7.87484 1.94907 7.90372 2.05252 7.95857 2.14372C8.01342 2.23492 8.09231 2.31065 8.18732 2.3633C8.28232 2.41595 8.39009 2.44367 8.49979 2.44367C8.60949 2.44367 8.71725 2.41595 8.81226 2.3633L9.81279 1.80837C9.93554 1.74036 10.0787 1.71441 10.2189 1.7348C10.359 1.75518 10.4877 1.82068 10.584 1.92056C11.22 2.58118 11.6942 3.3699 11.972 4.22905C12.0139 4.35898 12.0086 4.49874 11.957 4.6254C11.9053 4.75207 11.8103 4.85812 11.6876 4.92615L10.6871 5.48048C10.5921 5.53313 10.5132 5.60886 10.4584 5.70006C10.4035 5.79126 10.3746 5.8947 10.3746 6.00001C10.3746 6.10531 10.4035 6.20876 10.4584 6.29995C10.5132 6.39115 10.5921 6.46688 10.6871 6.51954L11.687 7.07326C11.8096 7.14127 11.9045 7.24722 11.9561 7.37376C12.0078 7.5003 12.0132 7.63992 11.9714 7.76977C11.6955 8.63011 11.2213 9.41975 10.584 10.0801C10.4877 10.1798 10.3589 10.2452 10.2187 10.2655C10.0786 10.2858 9.93547 10.2597 9.81279 10.1916L8.81226 9.63672C8.71725 9.58406 8.60949 9.55634 8.49979 9.55634C8.39009 9.55634 8.28232 9.58406 8.18732 9.63671C8.09231 9.68937 8.01342 9.76509 7.95857 9.85629C7.90372 9.94749 7.87484 10.0509 7.87484 10.1562V11.2661C7.87469 11.402 7.82651 11.5337 7.73819 11.6399C7.64986 11.746 7.52662 11.8203 7.38863 11.8504C6.47432 12.0503 5.52487 12.0499 4.61075 11.8492C4.47277 11.8189 4.34959 11.7446 4.26137 11.6383C4.17316 11.532 4.12514 11.4002 4.12516 11.2643V10.1562C4.12516 10.0509 4.09628 9.94749 4.04143 9.85629C3.98658 9.76509 3.90769 9.68937 3.81268 9.63671C3.71768 9.58406 3.60991 9.55634 3.50021 9.55634C3.39051 9.55634 3.28275 9.58406 3.18774 9.63672L2.18721 10.1916C2.06446 10.2597 1.92127 10.2856 1.78115 10.2652C1.64102 10.2448 1.51227 10.1793 1.41602 10.0795C1.09895 9.75025 0.821212 9.38805 0.58797 8.9996C0.354203 8.61137 0.166386 8.19927 0.0280188 7.77097C-0.0139355 7.64104 -0.00864535 7.50128 0.0430214 7.37461C0.0946881 7.24795 0.189664 7.1419 0.312369 7.07386L1.31228 6.51954C1.40728 6.46688 1.48616 6.39115 1.54101 6.29995C1.59585 6.20876 1.62473 6.10531 1.62473 6.00001C1.62473 5.8947 1.59585 5.79126 1.54101 5.70006C1.48616 5.60886 1.40728 5.53313 1.31228 5.48048L0.313619 4.92675C0.190933 4.85883 0.0959174 4.75292 0.044142 4.62638C-0.00763341 4.49983 -0.013098 4.36016 0.0286437 4.23025C0.304581 3.37012 0.778773 2.58069 1.41602 1.92056C1.51223 1.82083 1.64086 1.75541 1.78085 1.73503C1.92085 1.71465 2.0639 1.74051 2.18658 1.80837L3.18774 2.3633C3.28275 2.41595 3.39051 2.44367 3.50021 2.44367C3.60991 2.44367 3.71768 2.41595 3.81268 2.3633C3.90769 2.31065 3.98658 2.23492 4.04143 2.14372C4.09628 2.05252 4.12516 1.94907 4.12516 1.84377V0.733917V0.734517ZM6 7.79976C6.49724 7.79976 6.97411 7.61015 7.32571 7.27263C7.67731 6.93511 7.87484 6.47733 7.87484 6.00001C7.87484 5.52268 7.67731 5.06491 7.32571 4.72739C6.97411 4.38987 6.49724 4.20025 6 4.20025C5.50276 4.20025 5.02589 4.38987 4.67429 4.72739C4.32269 5.06491 4.12516 5.52268 4.12516 6.00001C4.12516 6.47733 4.32269 6.93511 4.67429 7.27263C5.02589 7.61015 5.50276 7.79976 6 7.79976Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="chat__main">
+          <div class="chat__messages">
+            <div class="chat__messages-list"></div>
+          </div>
+          <form class="chat__form">
+            <div class="chat__form-container">
+              <input type="text" placeholder="Write a text..." />
+            </div>
+            <div class="chat__form-container"><button>SEND</button></div>
+          </form>
+          <div class="suggestions"></div>
+        </div>
+        <div class="chat__settings">
+          <div class="chat__settings-top">
+            <h1>CHAT CONFIGURATION</h1>
+            <div class="close-btn">X</div>
+          </div>
+          <div class="chat__settings-container">
+            <div class="chat__settings-item" id="chat-position">
+              <h3>- Chat Position</h3>
+              <div class="chat__settings-item-row">
+                <label class="custom-radio-btn">
+                  <input id="posLeftUp" type="radio" value="left-up" name="position" checked />
+                  <span>Left UP</span>
+                </label>
+                <label class="custom-radio-btn">
+                  <input id="posRightUp" type="radio" value="right-up" name="position" />
+                  <span>Right UP</span>
+                </label>
+                <label class="custom-radio-btn">
+                  <input id="posLeftDown" type="radio" value="left-down" name="position" />
+                  <span>Left DOWN</span>
+                </label>
+                <label class="custom-radio-btn">
+                  <input id="posRightDown" type="radio" value="right-down" name="position" />
+                  <span>Right DOWN</span>
+                </label>
+              </div>
+            </div>
+            <div class="chat__settings-item">
+              <h3>- Chat Size</h3>
+              <label class="custom-range">
+                <input
+                  type="range"
+                  value="1"
+                  min="1"
+                  max="4"
+                  class="progress"
+                />
+                <span>1</span>
+              </label>
+            </div>
+            <div class="chat__settings-item" id="chat-background">
+              <h3>- Chat Background</h3>
+              <div class="chat__settings-item-row">
+                <label class="custom-radio-btn">
+                  <input id="bgyes" type="radio" name="background" checked />
+                  <span>YES</span>
+                </label>
+                <label class="custom-radio-btn">
+                  <input id="bgno" type="radio" name="background" />
+                  <span>NO</span>
+                </label>
+              </div>
+            </div>
+            <div class="chat__settings-item" id="chat-visibility">
+              <h3>- Chat Visibility</h3>
+              <div class="chat__settings-item-row">
+                <label class="custom-radio-btn">
+                  <input
+                    type="radio"
+                    name="visibility"
+                    id="show-chat"
+                    checked
+                  />
+                  <span>VISIBLE</span>
+                </label>
+                <label class="custom-radio-btn">
+                  <input type="radio" name="visibility" id="oninput" />
+                  <span>ON INPUT</span>
+                </label>
+                <label class="custom-radio-btn">
+                  <input type="radio" name="visibility" id="hide-chat" />
+                  <span>HIDDEN</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Chat end
+    ==================================== -->
+      <!-- Chat Settings Start
+    ==================================== -->
+      <!-- Chat Settings end
+    ==================================== -->
+    <div class="center">
+      <!-- <div class="popupwrapper">
+          <div class="popup">
+              <div class="col">
+                  <div class="command">
+                      <span id="popupcommand">ME</span>
+                  </div>
+                  <div class="id">
+                      <span id="popupid">ID: 10</span>
+                  </div>
+              </div>
+              <div class="text">
+                  <span id="popuptext">Lorem ipsum dolor. Lorem ipsum dolor. Lorem ipsum dolor. Lorem ipsum dolor. Lorem ipsum dolor.</span>
+              </div>
+          </div>
+          <div class="triangle"></div>
+      </div> -->
+  </div>
+    </main>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

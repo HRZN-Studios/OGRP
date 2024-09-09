@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="scripts/ui.js"></script>
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>aw3_loadingscreen</title>
+  </head>
+  <body>
+    <div class="container" theme="dark">
+      <div class="background">
+        <div class="wallpaper"></div>
+        <div class="colors">
+        </div>
+      </div>
+
+      <div class="wrapper">
+        <div id="songPlayer"></div>
+        
+        <div class="top-bar">
+          <div class="server-logo">
+            <img src="images/icons/logo.png">
+          </div>
+        </div>
+
+
+
+        <div class="menu-box rpvideo-box">
+          <iframe id="rpvideoPlayer" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Cartoon, Jéja - On &amp; On (feat. Daniel Levi) | Electronic Pop | NCS - Copyright Free Music" width="0.001" height="0.001" src="https://www.youtube.com/embed/K4DyBUG242c?playsinline=0&amp;color=white&amp;loop=1&amp;enablejsapi=1&amp;widgetid=1" class="rpvideo-fullscreen rpvideo-hidden"></iframe>
+          <img class="menu-box-icon" src="images/icons/youtube-red.svg" alt="">
+        </div>
+          <!-- <div class="menu-box-bg"></div>
+          <div class="rpvideo-thumbnail">
+            <div
+              onclick="controlRPVideo(true)"
+              class="rpvideo-thumbnail-cover"
+            >
+              <img src="images/icons/youtube.svg" />
+            </div>
+          </div>
+          <div class="rpvideo-box-text">
+          </div>
+        </div> -->
+
+        <!-- <div class="interactive-menu">
+          <div class="upper-part">
+            <img src="images/icons/interactive.svg" />
+            <strong>INTERACTIVE</strong>MENU
+          </div>
+          <div class="menu-box rpvideo-box">
+            <div id="rpvideoPlayer"></div>
+            <img
+              class="menu-box-icon"
+              src="images/icons/youtube-red.svg"
+              alt=""
+            />
+            <div class="menu-box-bg"></div>
+            <div class="rpvideo-thumbnail">
+              <div
+                onclick="controlRPVideo(true)"
+                class="rpvideo-thumbnail-cover"
+              >
+                <img src="images/icons/youtube.svg" />
+              </div>
+            </div>
+            <div class="rpvideo-box-text">
+              <div class="rpvideo-box-text-title">
+                <img id="rpvideo-img" src="images/avatars/profile.png" alt="" />
+                <span id="rpvideo-title">0ResmonRP Trailer</span>
+              </div>
+              <div class="rpvideo-box-text-description">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum
+                amet eius ex facilis cum et neque ea debitis! Cumque nostrum
+                laudantium vero ad assumenda repudiandae et velit, temporibus
+                quibusdam accusamus tenetur facilis, blanditiis labore rem iste
+                enim modi tempora magnam? Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Eum, non.
+              </div>
+            </div>
+          </div>
+          <div class="menu-box">
+            <img class="menu-box-icon" src="images/icons/click.svg" alt="" />
+            <div class="menu-box-bg"></div>
+            <div class="menu-box-upper">
+              <div class="menu-box-upper-icon">
+                <img src="images/icons/city-gallery.svg" />
+              </div>
+              <div class="menu-box-upper-text">
+                <div class="menu-box-title">CITY GALLERY</div>
+                <div class="menu-box-description">
+                  Take a look at city's images.
+                </div>
+              </div>
+            </div>
+            <div class="menu-box-hero-photo"></div>
+            <div class="menu-box-photos">
+              <img id="thumbnail-1" class="menu-box-photo" />
+              <div class="menu-box-photo-seperator"></div>
+              <img id="thumbnail-2" class="menu-box-photo" />
+              <div class="menu-box-photo-seperator"></div>
+              <img id="thumbnail-3" class="menu-box-photo" />
+              <div class="menu-box-photo-seperator"></div>
+              <img id="thumbnail-4" class="menu-box-photo" />
+              <div class="menu-box-photo-seperator"></div>
+              <img id="thumbnail-5" class="menu-box-photo" />
+            </div>
+          </div>
+          <div class="boxes">
+            <div class="menu-box music-player">
+              <img
+                onclick="toggleMusicBox()"
+                class="music-control-toggle"
+                src="images/icons/arrow.svg"
+              />
+              <div class="menu-box-bg"></div>
+              <div div class="music-thumbnail">
+                <img src="images/icons/example-song.png" />
+              </div>
+              <div class="music-progbar music-mini-progbar">
+                <div class="music-progbar-fill"></div>
+              </div>
+              <div class="music-player-right-part">
+                <div class="music-details">
+                  <div class="music-details-title">Song</div>
+                  <div class="music-details-artist">Unknown artist</div>
+                </div>
+
+                <div class="music-progress">
+                  <span id="music-timepassed">0.00</span>
+                  <div class="music-progbar">
+                    <div class="music-progbar-fill"></div>
+                  </div>
+                  <span id="music-timeremaining">0.00</span>
+                </div>
+                <div class="music-controls">
+                  <img
+                    id="music-control-backward"
+                    src="images/icons/backward.svg"
+                  />
+                  <img
+                    onclick="toggleMusicState(event);"
+                    id="music-control-pause"
+                    src="images/icons/pause.svg"
+                  />
+                  <img
+                    id="music-control-forward"
+                    src="images/icons/forward.svg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="menu-box new-update">
+              <div class="menu-box-bg"></div>
+              <div class="new-update-title">
+                <div class="new-update-title-left">
+                  <img src="images/icons/update.svg" />
+                  <p id="new_update-title">New Update v5.2.3</p>
+                </div>
+                <div
+                  onclick="closeNewUpdateBox()"
+                  class="new-update-title-right"
+                ></div>
+              </div>
+              <div id="new_update-description" class="new-update-description">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi,
+                consequatur? Lorem ipsum dolor
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <div class="settings-menu">
+          <div class="settings-menu-part">
+            <div class="settings-menu-part-text">
+              <img src="images/icons/background.svg">
+              <strong>DARK</strong>MODE
+            </div>
+            <div id="darkmode-slider" data-id="darkmode" onclick="sliderInputClick(event)" class="settings-slider" style="justify-content: flex-end">
+              <div class="settings-slider-input"></div>
+            </div>
+          </div>
+          <div class="settings-part-seperator"></div>
+          <div style="justify-content: center; flex-direction: column" class="settings-menu-part">
+            <div style="
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+              ">
+              <div class="settings-menu-part-text">
+                <img src="images/icons/colormode.svg">
+                <strong>COLOR</strong>MODE
+              </div>
+              <div id="colormode-slider" data-id="colormode" onclick="sliderInputClick(event)" class="settings-slider">
+                <div class="settings-slider-input"></div>
+              </div>
+            </div>
+
+            <div class="settings-color-input">
+              <input id="primary-color" value="50" onchange="colorInputChange(event)" type="range">
+            </div>
+            <div class="settings-color-input">
+              <input id="secondary-color" value="50" onchange="colorInputChange(event)" type="range">
+            </div>
+          </div>
+
+          <div class="settings-part-seperator"></div>
+          <div style="justify-content: center; flex-direction: column" class="settings-menu-part">
+            <div style="
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+              ">
+              <div class="settings-menu-part-text">
+                <img src="images/icons/background.svg">
+                <strong>BACK</strong>GROUND
+              </div>
+              <div onclick="changeBackground(true)" class="settings-menu-part-btn">
+                apply
+              </div>
+            </div>
+            <input id="input_background" type="text">
+          </div>
+
+          <div class="settings-part-seperator"></div>
+
+          <div style="justify-content: center; flex-direction: column" class="settings-menu-part">
+            <div style="
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+              ">
+              <div class="settings-menu-part-text">
+                <img src="images/icons/background.svg">
+                SONG
+              </div>
+              <div onclick="changeSong(true)" class="settings-menu-part-btn">
+                change
+              </div>
+            </div>
+            <input id="input_song" type="text">
+          </div>
+        </div>
+
+        <div class="news-menu">
+          <div class="news-menu-title" style="color: white">
+            <!-- <img src="images/icons/news.svg" /> -->
+            <strong id="news">News</strong>
+          </div>
+          <div class="news-menu-title" style="color: #5E5E5E">
+            <!-- <img src="images/icons/news.svg" /> -->
+            <strong id="kurallar">Rules</strong>
+          </div>
+          <div class="news-menu-title" style="color: #5E5E5E">
+            <!-- <img src="images/icons/news.svg" /> -->
+            <strong id="gunbcellemeler">Updates</strong>
+          </div>
+          <div class="news-menu-title" style="color: #5E5E5E">
+            <!-- <img src="images/icons/news.svg" /> -->
+            <strong id="takim">Team</strong>
+          </div>
+        </div>
+
+        <div class="news-menuAna" style="">
+          <div class="news">
+            <div>
+              <!-- <h2 style="display: flex; position: relative; left: 2%; top: 20vh;" id="new_update-title">Click to reveal news, rules, updates or team.</h2> -->
+            </div>
+            </div>
+        </div>
+
+        <div class="keyboard-menu">
+          <div class="keyboard-menu-title">
+            <img class="keyboardImage" src="images/icons/logosifirresmon.png">
+            <div class="keyboard-texts">
+            <strong>Keyboard settings</strong>
+            <p class="keyBoardAltText">Select highlighted key to understand its assigned function</p>
+            </div>
+          </div>
+          <div class="keyboard">
+            <div class="keyboard-upper">
+              <div style="width: 9vh" class="keyboard-btn">ESC</div>
+              <div class="keyboard-btn">F1</div>
+              <div class="keyboard-btn">F2</div>
+              <div class="keyboard-btn">F3</div>
+              <div class="keyboard-btn">F4</div>
+              <div class="keyboard-btn">F5</div>
+              <div class="keyboard-btn">F6</div>
+              <div class="keyboard-btn">F7</div>
+              <div class="keyboard-btn">F8</div>
+              <div class="keyboard-btn">F9</div>
+              <div class="keyboard-btn">F10</div>
+              <div class="keyboard-btn">F11</div>
+              <div class="keyboard-btn">F12</div>
+              <div class="keyboard-btn">Prnsc</div>
+              <div key-id="HOME" class="keyboard-btn">
+              </div>
+            </div>
+            <div class="keyboard-line">
+              <div class="keyboard-btn">“</div>
+              <div class="keyboard-btn">1</div>
+              <div class="keyboard-btn">2</div>
+              <div class="keyboard-btn">3</div>
+              <div class="keyboard-btn">4</div>
+              <div class="keyboard-btn">5</div>
+              <div class="keyboard-btn">6</div>
+              <div class="keyboard-btn">7</div>
+              <div class="keyboard-btn">8</div>
+              <div class="keyboard-btn">9</div>
+              <div class="keyboard-btn">0</div>
+              <div class="keyboard-btn">?\*</div>
+              <div class="keyboard-btn">-\|</div>
+              <div style="width: 6.4vh; justify-content: flex-center" class="keyboard-btn" key-id="BACKSPACE">
+              Delete
+              </div>
+              <div key-id="INSERT" class="keyboard-btn"></div>
+            </div>
+            <div class="keyboard-line">
+              <div style="width: 8vh" class="keyboard-btn">TAB</div>
+              <div class="keyboard-btn">Q</div>
+              <div class="keyboard-btn">W</div>
+              <div class="keyboard-btn">E</div>
+              <div class="keyboard-btn">R</div>
+              <div class="keyboard-btn">T</div>
+              <div class="keyboard-btn">Y</div>
+              <div class="keyboard-btn">U</div>
+              <div class="keyboard-btn">I</div>
+              <div class="keyboard-btn">O</div>
+              <div class="keyboard-btn">P</div>
+              <div not-clickable="" class="keyboard-btn">[</div>
+              <div not-clickable="" class="keyboard-btn">]</div>
+              <div not-clickable="" class="keyboard-btn"></div>
+              <div key-id="PAGEUP" class="keyboard-btn"></div>
+            </div>
+            <div class="keyboard-line">
+              <div key-id="CAPSLOCK" style="width: 9vh" class="keyboard-btn">
+                Caps lock
+              </div>
+              <div class="keyboard-btn">A</div>
+              <div class="keyboard-btn">S</div>
+              <div class="keyboard-btn">D</div>
+              <div class="keyboard-btn">F</div>
+              <div class="keyboard-btn">G</div>
+              <div class="keyboard-btn">H</div>
+              <div class="keyboard-btn">J</div>
+              <div class="keyboard-btn">K</div>
+              <div class="keyboard-btn">L</div>
+              <div class="keyboard-btn">:</div>
+              <div class="keyboard-btn">,</div>
+              <div style="width: 7vh" class="keyboard-btn">Enter</div>
+              <div class="keyboard-btn"></div>
+            </div>
+            <div class="keyboard-line">
+              <div style="width: 10vh" class="keyboard-btn">Shift</div>
+              <div class="keyboard-btn">Z</div>
+              <div class="keyboard-btn">X</div>
+              <div class="keyboard-btn">C</div>
+              <div class="keyboard-btn">V</div>
+              <div class="keyboard-btn">B</div>
+              <div class="keyboard-btn">N</div>
+              <div class="keyboard-btn">M</div>
+              <div class="keyboard-btn">&lt;</div>
+              <div class="keyboard-btn">&gt;</div>
+              <div not-clickable="" class="keyboard-btn"></div>
+              <div style="width: 7vh" class="keyboard-btn">Shift</div>
+              <div key-id="ARROWUP" class="keyboard-btn">
+                <img src="images/icons/key_arrow.svg">
+              </div>
+              <div key-id="PAGEDOWN" class="keyboard-btn"></div>
+            </div>
+            <div class="keyboard-line">
+              <div style="width: 7vh" class="keyboard-btn">Ctrl</div>
+              <div not-clickable="" class="keyboard-btn">
+                <img src="images/icons/windows.svg">
+              </div>
+              <div class="keyboard-btn">ALT</div>
+              <div not-clickable="" class="keyboard-btn"></div>
+              <div style="width: 28vh" class="keyboard-btn">Spacebar</div>
+              <div class="keyboard-btn">ALT</div>
+              <div not-clickable="" class="keyboard-btn"></div>
+              <div style="width: 9vh" class="keyboard-btn"></div>
+              <div key-id="ARROWLEFT" class="keyboard-btn">
+                <img style="transform: rotate(-90deg)" src="images/icons/key_arrow.svg">
+              </div>
+              <div key-id="ARROWDOWN" class="keyboard-btn">
+                <img style="transform: rotate(180deg)" src="images/icons/key_arrow.svg">
+              </div>
+              <div key-id="ARROWRIGHT" class="keyboard-btn">
+                <img style="transform: rotate(90deg)" src="images/icons/key_arrow.svg">
+              </div>
+            </div>
+          </div>
+          <div class="keyboard-menu-help">
+            <div class="keyboard-menu-help-key">?</div>
+            <div class="keyboard-menu-help-description">
+              <div class="keyboard-menu-help-description-bg"></div>
+              <div class="keyboard-menu-help-description-text">
+                Click on any key to see its in-game function.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="progress-bar">
+          <div class="main-progress">
+            <div class="progressbar">
+              <div class="progressbar-filler">
+                <!-- <div class="progress-icon">
+                  <img src="images/icons/walkman-loading.svg">
+                </div> -->
+              </div>
+            </div>
+          </div>
+
+        <div class="bottom-bar">
+          <div class="game-progress">
+            <svg onclick="toggleNewsMenu()" class="interaction-button newsbutton"  width="20" height="16" viewBox="0 0 20 16" fill="red" xmlns="http://www.w3.org/2000/svg">
+              <path style="fill:white;"  d="M3.78708 11.0769V8.61538H6.24862V11.0769H3.78708ZM16.0948 1.83877C16.0928 1.35042 15.8974 0.882738 15.5514 0.538112C15.2054 0.193487 14.737 -3.90679e-06 14.2486 0H1.84615C1.35652 0 0.886947 0.194505 0.540726 0.540726C0.194505 0.886947 0 1.35652 0 1.84615V12.9231C0 13.7391 0.324175 14.5218 0.90121 15.0988C1.47825 15.6758 2.26087 16 3.07692 16H16.8049C17.621 16 18.4036 15.6758 18.9806 15.0988C19.5577 14.5218 19.8818 13.7391 19.8818 12.9231V5.53846C19.8818 5.04883 19.6873 4.57925 19.3411 4.23303C18.9949 3.88681 18.5253 3.69231 18.0357 3.69231H17.3255V12.5908C17.3255 12.754 17.2607 12.9105 17.1453 13.0259C17.0299 13.1413 16.8734 13.2062 16.7102 13.2062C16.5469 13.2062 16.3904 13.1413 16.275 13.0259C16.1596 12.9105 16.0948 12.754 16.0948 12.5908V1.83877ZM2.55631 4.30769C2.55631 4.14448 2.62114 3.98796 2.73655 3.87255C2.85196 3.75714 3.00848 3.69231 3.17169 3.69231H13.0178C13.1811 3.69231 13.3376 3.75714 13.453 3.87255C13.5684 3.98796 13.6332 4.14448 13.6332 4.30769C13.6332 4.4709 13.5684 4.62743 13.453 4.74284C13.3376 4.85824 13.1811 4.92308 13.0178 4.92308H3.17169C3.00848 4.92308 2.85196 4.85824 2.73655 4.74284C2.62114 4.62743 2.55631 4.4709 2.55631 4.30769ZM9.32554 7.38462H13.0178C13.1811 7.38462 13.3376 7.44945 13.453 7.56486C13.5684 7.68026 13.6332 7.83679 13.6332 8C13.6332 8.16321 13.5684 8.31974 13.453 8.43514C13.3376 8.55055 13.1811 8.61538 13.0178 8.61538H9.32554C9.16233 8.61538 9.0058 8.55055 8.8904 8.43514C8.77499 8.31974 8.71015 8.16321 8.71015 8C8.71015 7.83679 8.77499 7.68026 8.8904 7.56486C9.0058 7.44945 9.16233 7.38462 9.32554 7.38462ZM8.71015 11.6923C8.71015 11.5291 8.77499 11.3726 8.8904 11.2572C9.0058 11.1418 9.16233 11.0769 9.32554 11.0769H13.0178C13.1811 11.0769 13.3376 11.1418 13.453 11.2572C13.5684 11.3726 13.6332 11.5291 13.6332 11.6923C13.6332 11.8555 13.5684 12.012 13.453 12.1275C13.3376 12.2429 13.1811 12.3077 13.0178 12.3077H9.32554C9.16233 12.3077 9.0058 12.2429 8.8904 12.1275C8.77499 12.012 8.71015 11.8555 8.71015 11.6923ZM3.17169 7.38462H6.864C7.02721 7.38462 7.18374 7.44945 7.29914 7.56486C7.41455 7.68026 7.47939 7.83679 7.47939 8V11.6923C7.47939 11.8555 7.41455 12.012 7.29914 12.1275C7.18374 12.2429 7.02721 12.3077 6.864 12.3077H3.17169C3.00848 12.3077 2.85196 12.2429 2.73655 12.1275C2.62114 12.012 2.55631 11.8555 2.55631 11.6923V8C2.55631 7.83679 2.62114 7.68026 2.73655 7.56486C2.85196 7.44945 3.00848 7.38462 3.17169 7.38462Z" fill="#5E5E5E"></path>
+            </svg>                
+
+            <svg onclick="toggleSettingsMenu()" class="interaction-button settingsbutton" width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path style="fill:gray;" d="M11.2818 3.72836e-09C11.894 -3.40974e-05 12.483 0.23386 12.9284 0.653827C13.3738 1.07379 13.6419 1.64809 13.6778 2.2592L13.6818 2.4C14.3184 2.4 14.9288 2.65286 15.3789 3.10294C15.829 3.55303 16.0818 4.16348 16.0818 4.8C16.0819 6.0419 15.6006 7.23549 14.7391 8.12998C13.8775 9.02447 12.7029 9.55023 11.4618 9.5968L11.2818 9.6H8.08184L8.20184 9.604C8.58277 9.63263 8.9409 9.79661 9.21146 10.0663C9.48202 10.336 9.64717 10.6936 9.67704 11.0744L9.68184 11.2V14.4C9.68196 14.8037 9.52951 15.1925 9.25504 15.4884C8.98057 15.7844 8.60436 15.9657 8.20184 15.996L8.08184 16H6.48184C6.07817 16.0001 5.68938 15.8477 5.3934 15.5732C5.09741 15.2987 4.91611 14.9225 4.88584 14.52L4.88184 14.4V11.2C4.88171 10.7963 5.03416 10.4075 5.30863 10.1116C5.58311 9.81558 5.95931 9.63427 6.36184 9.604L6.48184 9.6V8.8C6.48186 8.60405 6.5538 8.41493 6.68401 8.2685C6.81422 8.12207 6.99364 8.02853 7.18824 8.0056L7.28184 8H11.2818C12.1305 8 12.9445 7.66286 13.5446 7.06274C14.1447 6.46263 14.4818 5.64869 14.4818 4.8C14.4818 4.60405 14.4099 4.41493 14.2797 4.2685C14.1495 4.12207 13.97 4.02853 13.7754 4.0056L13.6818 4L13.6778 4.1408C13.6434 4.72767 13.3947 5.28149 12.979 5.69718C12.5633 6.11288 12.0095 6.36154 11.4226 6.396L11.2818 6.4H3.28184C2.66967 6.40003 2.08062 6.16614 1.63523 5.74617C1.18983 5.32621 0.92175 4.75191 0.885836 4.1408L0.881836 4V2.4C0.881802 1.78783 1.1157 1.19879 1.53566 0.753391C1.95563 0.307994 2.52992 0.039914 3.14104 0.0040001L3.28184 3.72836e-09H11.2818Z" fill="white"></path>
+            </svg>
+            
+            <svg onclick="toggleKeyboardMenu()" class="interaction-button keyboardbutton" width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.08179 14C1.53179 14 1.06112 13.8043 0.669787 13.413C0.278454 13.0217 0.0824538 12.5507 0.0817871 12V2C0.0817871 1.45 0.277787 0.979333 0.669787 0.588C1.06179 0.196666 1.53245 0.000666667 2.08179 0H18.0818C18.6318 0 19.1028 0.196 19.4948 0.588C19.8868 0.98 20.0825 1.45067 20.0818 2V12C20.0818 12.55 19.8861 13.021 19.4948 13.413C19.1035 13.805 18.6325 14.0007 18.0818 14H2.08179ZM6.08179 11H14.0818V9H6.08179V11ZM3.08179 8H5.08179V6H3.08179V8ZM6.08179 8H8.08179V6H6.08179V8ZM9.08179 8H11.0818V6H9.08179V8ZM12.0818 8H14.0818V6H12.0818V8ZM15.0818 8H17.0818V6H15.0818V8ZM3.08179 5H5.08179V3H3.08179V5ZM6.08179 5H8.08179V3H6.08179V5ZM9.08179 5H11.0818V3H9.08179V5ZM12.0818 5H14.0818V3H12.0818V5ZM15.0818 5H17.0818V3H15.0818V5Z" fill="#5E5E5E"></path>
+            </svg>
+
+            <svg onclick="prink()" class="interaction-button rpvideo" width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.68874 16C1.42179 15.9995 1.15957 15.9295 0.92787 15.797C0.406133 15.5013 0.0817871 14.9274 0.0817871 14.3044V1.69572C0.0817871 1.07094 0.406133 0.49877 0.92787 0.203119C1.16509 0.0667878 1.43457 -0.00332087 1.70815 0.000120885C1.98173 0.00356264 2.24937 0.0804287 2.48308 0.222685L13.2591 6.67309C13.4837 6.81391 13.6688 7.00946 13.7972 7.24141C13.9255 7.47335 13.9928 7.73409 13.9928 7.99917C13.9928 8.26425 13.9255 8.52499 13.7972 8.75693C13.6688 8.98888 13.4837 9.18443 13.2591 9.32525L2.48134 15.7774C2.24217 15.922 1.96822 15.9989 1.68874 16Z" fill="#5E5E5E"></path>
+            </svg>
+          </div>
+          <div class="music_player_new">
+            <img id="orospucocugu" src="https://cdn.discordapp.com/attachments/991119965342142514/1244005483736465428/sd.jpg?ex=665432a3&is=6652e123&hm=345043067558eb354d5f6ff71ab5f89c253c24fcc920e1107aa0d8f4756a5a02&">
+            <div>
+              <div class="music_details_new">
+                <p id="orospudusfudsfusdufdsfds">Title<br> <span>Artist</span></p>
+                <input onchange="setVideosMinute()" id="input_minute" type="range" value="1" min="0" max="500" style="padding: 0px; width: 16vh; margin-left: 0px; background-size: 39.2% 100%;">
+              </div>
+              <div class="music_controls_new">
+                <p id="music-timepassed">3:17</p>
+                <svg id="music-control-backward" width="45" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path opacity="0.35" fill-rule="evenodd" clip-rule="evenodd" d="M7.85712 3.81818L13.8571 0L13.8571 10L7.85712 6.18182L7.85712 10L-2.62658e-05 5L7.85712 -5.24537e-07L7.85712 3.81818Z" fill="white"></path>
+                </svg>
+                <img onclick="toggleMusicState(event);" id="music-control-pause" src="images/icons/play.svg">
+                <svg id="music-control-forward" width="45" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path opacity="0.35" fill-rule="evenodd" clip-rule="evenodd" d="M6.71429 6.18182L0.714294 10V0L6.71429 3.81818V0L14.5714 5L6.71429 10V6.18182Z" fill="white"></path>
+                </svg>
+                <p id="music-timeremaining">-1:4</p>
+              </div>
+              <div class="music_soundbar_new">
+                <svg class="svgSes" width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 8px;">
+                  <path d="M9.30769 4.23077C9.30769 4.23077 10.2308 4.69231 10.2308 5.84615C10.2308 7 9.30769 7.46154 9.30769 7.46154M10.2308 1.46154C12.0769 2.38462 13 3.76923 13 5.84615C13 7.92308 12.0769 9.30769 10.2308 10.2308M1 3.76923V7.92308H3.30769L7 10.6923V1L3.30769 3.76923H1Z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <input onchange="adjustPlayerVolume()" type="range" value="50" min="0" max="100" id="input_audiovolume" oninput="rangevalue.value=value" style="background-size: 50% 100%;">
+
+                <!-- <input onchange="adjustPlayerVolume()" type="range" id="input_audiovolume" placeholder="50" min="0" max="100" step="1" value="50" oninput="rangevalue.value=value"> -->
+              </div>
+            </div>
+          </div>
+          <div class="buttons_texts">
+            <!-- <div>Join to our <span id="selamp">0Resmon</span><br>project community.</div> -->
+            <a href="https://www.youtube.com/@0resmonstudio810" target="_blank" rel="noopener noreferrer" onclick="window.invokeNative('openUrl', 'https://www.youtube.com/@0resmonstudio810')">
+              <svg id="youtube" fill="#FFFFFF" class="socialmedia-button" width="18" height="12" viewBox="0 0 18 12" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.30739 8.53847L11.6989 6.00001L7.30739 3.46155V8.53847ZM17.0889 1.91309C17.1989 2.31078 17.2751 2.84386 17.3258 3.52078C17.3851 4.1977 17.4105 4.78155 17.4105 5.28924L17.4612 6.00001C17.4612 7.85309 17.3258 9.2154 17.0889 10.0869C16.8774 10.8485 16.3866 11.3392 15.6251 11.5508C15.2274 11.6608 14.4997 11.7369 13.3828 11.7877C12.2828 11.8469 11.2758 11.8723 10.3451 11.8723L8.99969 11.9231C5.45431 11.9231 3.24585 11.7877 2.37431 11.5508C1.61277 11.3392 1.122 10.8485 0.910462 10.0869C0.800462 9.68924 0.724309 9.15617 0.673539 8.47924C0.614309 7.80232 0.588924 7.21847 0.588924 6.71078L0.538155 6.00001C0.538155 4.14693 0.673539 2.78463 0.910462 1.91309C1.122 1.15155 1.61277 0.660781 2.37431 0.449243C2.772 0.339243 3.49969 0.263089 4.61662 0.212319C5.71662 0.153089 6.72354 0.127704 7.65431 0.127704L8.99969 0.0769348C12.5451 0.0769348 14.7535 0.212319 15.6251 0.449243C16.3866 0.660781 16.8774 1.15155 17.0889 1.91309Z" fill="white"></path>
+              </svg>
+            </a>
+
+            <a href="https://0resmon.tebex.io/" target="_blank" rel="noopener noreferrer" onclick="window.invokeNative('openUrl', 'https://0resmon.tebex.io/')">
+              <svg fill="#FFFFFF" class="socialmedia-button" id="links" width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.4321 6.93161L16.092 9.59147C16.5236 10.0173 16.8667 10.5244 17.1015 11.0834C17.3364 11.6424 17.4583 12.2424 17.4604 12.8487C17.4624 13.455 17.3445 14.0558 17.1134 14.6164C16.8823 15.177 16.5426 15.6863 16.1138 16.115C15.6851 16.5438 15.1757 16.8835 14.6152 17.1146C14.0546 17.3457 13.4538 17.4636 12.8475 17.4616C12.2411 17.4595 11.6412 17.3376 11.0822 17.1027C10.5232 16.8679 10.0161 16.5248 9.59026 16.0932L8.7042 15.2071C8.58439 15.0915 8.4888 14.9532 8.42302 14.8002C8.35723 14.6473 8.32257 14.4828 8.32104 14.3163C8.31952 14.1498 8.35116 13.9847 8.41414 13.8306C8.47711 13.6764 8.57015 13.5364 8.68782 13.4186C8.80549 13.3008 8.94544 13.2077 9.09951 13.1445C9.25357 13.0814 9.41866 13.0496 9.58515 13.051C9.75164 13.0524 9.91619 13.0869 10.0692 13.1525C10.2222 13.2182 10.3606 13.3136 10.4763 13.4333L11.3641 14.3202C11.7566 14.7092 12.2873 14.9269 12.8399 14.9256C13.3926 14.9243 13.9222 14.7042 14.313 14.3133C14.7037 13.9225 14.9237 13.3928 14.9248 12.8401C14.926 12.2875 14.7081 11.7569 14.319 11.3644L11.6591 8.70457C11.3716 8.41696 11.0065 8.21947 10.6084 8.13632C10.2103 8.05317 9.79665 8.08797 9.41806 8.23646C9.28265 8.28996 9.15726 8.34513 9.03856 8.4003L8.6507 8.58169C8.13244 8.81575 7.73371 8.91606 7.22631 8.4095C6.4974 7.68058 6.68631 7.00768 7.57488 6.39496C8.46015 5.7862 9.5306 5.50657 10.6005 5.60459C11.6704 5.70262 12.6722 6.17211 13.4321 6.93161ZM8.40829 1.9078L9.29435 2.79386C9.52286 3.03023 9.6494 3.3469 9.6467 3.67566C9.644 4.00443 9.51228 4.31897 9.27991 4.55156C9.04754 4.78415 8.73312 4.91616 8.40436 4.91918C8.0756 4.92219 7.75881 4.79595 7.52222 4.56766L6.63532 3.68159C6.4426 3.48195 6.21205 3.32268 5.95712 3.21308C5.70219 3.10349 5.42799 3.04576 5.15051 3.04327C4.87304 3.04078 4.59784 3.09358 4.34099 3.19858C4.08413 3.30359 3.85076 3.45869 3.65449 3.65485C3.45822 3.85101 3.30298 4.08429 3.19784 4.34109C3.09269 4.59788 3.03974 4.87305 3.04207 5.15053C3.0444 5.42801 3.10197 5.70224 3.21142 5.95723C3.32087 6.21223 3.48001 6.44287 3.67955 6.6357L6.33941 9.29556C6.6269 9.58318 6.99207 9.78067 7.39014 9.86381C7.78821 9.94696 8.2019 9.91216 8.58048 9.76367C8.7159 9.71017 8.84129 9.655 8.95999 9.59983L9.34785 9.41844C9.86611 9.18438 10.2657 9.08408 10.7722 9.59064C11.5011 10.3195 11.3122 10.9925 10.4237 11.6052C9.5384 12.2139 8.46795 12.4936 7.39805 12.3955C6.32816 12.2975 5.32635 11.828 4.56645 11.0685L1.90658 8.40866C1.47497 7.98279 1.13186 7.47575 0.897012 6.91674C0.662162 6.35772 0.540211 5.75777 0.538179 5.15143C0.536148 4.54509 0.654077 3.94434 0.885176 3.38376C1.11628 2.82318 1.45598 2.31386 1.88473 1.88511C2.31348 1.45635 2.82281 1.11665 3.38338 0.885551C3.94396 0.654452 4.54471 0.536523 5.15106 0.538554C5.7574 0.540586 6.35735 0.662537 6.91636 0.897387C7.47538 1.13224 7.98242 1.47618 8.40829 1.9078Z" fill="white"></path>
+              </svg>
+            </a>
+              
+            <a href="https://discord.gg/0resmon" target="_blank" rel="noopener noreferrer" onclick="window.invokeNative('openUrl', 'https://discord.gg/0resmon')">
+              <svg fill="#FFFFFF" id="discord" class="socialmedia-button" style="enable-background:new 0 0 100 100;" version="1.1" viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+                .st0{fill:#FFFFFF;}
+                .st1{fill:#FFFFFF;}
+                .st2{fill:#FFFFFF;}
+                .st3{fill:#FFFFFF;}
+                .st4{fill:#FFFFFF;}
+                .st5{fill:#FFFFFF;}
+                .st6{fill:#FFFFFF;}
+                .st7{fill:#FFFFFF;}
+                .st8{fill:#FFFFFF;}
+                .st9{fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+                
+                  .st10{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#FFFFFF;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+                
+                  .st11{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#FFFFFF;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+                .st12{fill-rule:evenodd;clip-rule:evenodd;}
+                .st13{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+                .st14{fill:url(#SVGID_1_);}
+                .st15{fill:url(#SVGID_2_);}
+                .st16{fill:url(#SVGID_3_);}
+                .st17{fill:url(#SVGID_4_);}
+                .st18{fill:url(#SVGID_5_);}
+                .st19{fill:url(#SVGID_6_);}
+                .st20{fill:url(#SVGID_7_);}
+                .st21{fill:url(#SVGID_8_);}
+                .st22{fill:url(#SVGID_9_);}
+                .st23{fill:url(#SVGID_10_);}
+                .st24{fill:url(#SVGID_11_);}
+                .st25{fill:url(#SVGID_12_);}
+                .st26{fill:url(#SVGID_13_);}
+                .st27{fill:url(#SVGID_14_);}
+                .st28{fill:url(#SVGID_15_);}
+                .st29{fill:url(#SVGID_16_);}
+                .st30{fill:url(#SVGID_17_);}
+                .st31{fill:url(#SVGID_18_);}
+                .st32{fill:url(#SVGID_19_);}
+                .st33{fill:url(#SVGID_20_);}
+                .st34{fill:url(#SVGID_21_);}
+                .st35{fill:url(#SVGID_22_);}
+                .st36{fill:url(#SVGID_23_);}
+                .st37{fill:url(#SVGID_24_);}
+                .st38{fill:url(#SVGID_25_);}
+                .st39{fill:url(#SVGID_26_);}
+                .st40{fill:url(#SVGID_27_);}
+                .st41{fill:url(#SVGID_28_);}
+                .st42{fill:url(#SVGID_29_);}
+                .st43{fill:url(#SVGID_30_);}
+                .st44{fill:url(#SVGID_31_);}
+                .st45{fill:url(#SVGID_32_);}
+                .st46{fill:url(#SVGID_33_);}
+                .st47{fill:url(#SVGID_34_);}
+                .st48{fill:url(#SVGID_35_);}
+                .st49{fill:url(#SVGID_36_);}
+                .st50{fill:url(#SVGID_37_);}
+                .st51{fill:url(#SVGID_38_);}
+                .st52{fill:url(#SVGID_39_);}
+                .st53{fill:url(#SVGID_40_);}
+                .st54{fill:url(#SVGID_41_);}
+                .st55{fill:url(#SVGID_42_);}
+                .st56{fill:url(#SVGID_43_);}
+                .st57{fill:url(#SVGID_44_);}
+                .st58{fill:url(#SVGID_45_);}
+                .st59{fill:#040404;}
+                .st60{fill:url(#SVGID_46_);}
+                .st61{fill:url(#SVGID_47_);}
+                .st62{fill:url(#SVGID_48_);}
+                .st63{fill:url(#SVGID_49_);}
+                .st64{fill:url(#SVGID_50_);}
+                .st65{fill:url(#SVGID_51_);}
+                .st66{fill:url(#SVGID_52_);}
+                .st67{fill:url(#SVGID_53_);}
+                .st68{fill:url(#SVGID_54_);}
+                .st69{fill:url(#SVGID_55_);}
+                .st70{fill:url(#SVGID_56_);}
+                .st71{fill:url(#SVGID_57_);}
+                .st72{fill:url(#SVGID_58_);}
+                .st73{fill:url(#SVGID_59_);}
+                .st74{fill:url(#SVGID_60_);}
+                .st75{fill:url(#SVGID_61_);}
+                .st76{fill:url(#SVGID_62_);}
+                .st77{fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;}
+                .st78{fill:none;stroke:#FFFFFF;stroke-miterlimit:10;}
+                .st79{fill:#4BC9FF;}
+                .st80{fill:#FFFFFF;}
+                .st81{fill:#FF3A00;}
+                .st82{fill:#E6162D;}
+                .st83{fill:#F1F1F1;}
+                .st84{fill:#FF9933;}
+                .st85{fill:#B92B27;}
+                .st86{fill:#00ACED;}
+                .st87{fill:#BD2125;}
+                .st88{fill:#FFFFFF;}
+                .st89{fill:#FFFFFF;}
+                .st90{fill:#CE3056;}
+                .st91{fill:#5BB381;}
+                .st92{fill:#61C3EC;}
+                .st93{fill:#E4B34B;}
+                .st94{fill:#181EF2;}
+                .st95{fill:#FF0000;}
+                .st96{fill:#FE466C;}
+                .st97{fill:#FA4778;}
+                .st98{fill:#FF7700;}
+                .st99{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+                .st100{fill:#520094;}
+                .st101{fill:#4477E8;}
+                .st102{fill:#3D1D1C;}
+                .st103{fill:#FFE812;}
+                .st104{fill:#344356;}
+                .st105{fill:#00CC76;}
+                .st106{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+                .st107{fill:#1F65D8;}
+                .st108{fill:#EB3587;}
+                .st109{fill-rule:evenodd;clip-rule:evenodd;fill:#603A88;}
+                .st110{fill:#E3CE99;}
+                .st111{fill:#783AF9;}
+                .st112{fill:#FF515E;}
+                .st113{fill:#FF4906;}
+                .st114{fill:#503227;}
+                .st115{fill:#4C7BD9;}
+                .st116{fill:#69C9D0;}
+                .st117{fill:#1B92D1;}
+                .st118{fill:#EB4F4A;}
+                .st119{fill:#513728;}
+                .st120{fill:#FF6600;}
+                .st121{fill-rule:evenodd;clip-rule:evenodd;fill:#B61438;}
+                .st122{fill:#FFFC00;}
+                .st123{fill:#141414;}
+                .st124{fill:#94D137;}
+                .st125{fill-rule:evenodd;clip-rule:evenodd;fill:#F1F1F1;}
+                .st126{fill-rule:evenodd;clip-rule:evenodd;fill:#66E066;}
+                .st127{fill:#2D8CFF;}
+                .st128{fill:#F1A300;}
+                .st129{fill:#4BA2F2;}
+                .st130{fill:#1A5099;}
+                .st131{fill:#EE6060;}
+                .st132{fill-rule:evenodd;clip-rule:evenodd;fill:#F48120;}
+                .st133{fill:#222222;}
+                .st134{fill:url(#SVGID_63_);}
+                .st135{fill:#0077B5;}
+                .st136{fill:#FFCC00;}
+                .st137{fill:#EB3352;}
+                .st138{fill:#F9D265;}
+                .st139{fill:#F5B955;}
+                .st140{fill:#DD2A7B;}
+                .st141{fill:#66E066;}
+                .st142{fill:#EB4E00;}
+                .st143{fill:#FFC794;}
+                .st144{fill:#B5332A;}
+                .st145{fill:#4E85EB;}
+                .st146{fill:#58A45C;}
+                .st147{fill:#F2BC42;}
+                .st148{fill:#D85040;}
+                .st149{fill:#464EB8;}
+                .st150{fill:#7B83EB;}
+              </style><g id="Layer_1"></g><g id="Layer_2"><g><g><path class="st89" d="M85.22,24.958c-11.459-8.575-22.438-8.334-22.438-8.334l-1.122,1.282     c13.623,4.087,19.954,10.097,19.954,10.097c-19.491-10.731-44.317-10.654-64.59,0c0,0,6.571-6.331,20.996-10.418l-0.801-0.962     c0,0-10.899-0.24-22.438,8.334c0,0-11.54,20.755-11.54,46.319c0,0,6.732,11.54,24.442,12.101c0,0,2.965-3.526,5.369-6.571     c-10.177-3.045-14.024-9.376-14.024-9.376c6.394,4.001,12.859,6.505,20.916,8.094c13.108,2.698,29.413-0.076,41.591-8.094     c0,0-4.007,6.491-14.505,9.456c2.404,2.965,5.289,6.411,5.289,6.411c17.71-0.561,24.441-12.101,24.441-12.02     C96.759,45.713,85.22,24.958,85.22,24.958z M35.055,63.824c-4.488,0-8.174-3.927-8.174-8.815     c0.328-11.707,16.102-11.671,16.348,0C43.229,59.897,39.622,63.824,35.055,63.824z M64.304,63.824     c-4.488,0-8.174-3.927-8.174-8.815c0.36-11.684,15.937-11.689,16.348,0C72.478,59.897,68.872,63.824,64.304,63.824z"></path></g></g></g></svg>            </a>
+          
+
+            <a href="https://www.instagram.com/efe_yapc/" target="_blank" rel="noopener noreferrer" onclick="window.invokeNative('openUrl', 'https://www.instagram.com/efe_yapc/')">
+              <svg fill="#FFFFFF" id="instagram" class="socialmedia-button" data-name="Layer 1" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:#FFFFFF;}</style></defs><title></title><path class="cls-1" d="M83,23a22,22,0,0,1,22,22V83a22,22,0,0,1-22,22H45A22,22,0,0,1,23,83V45A22,22,0,0,1,45,23H83m0-8H45A30.09,30.09,0,0,0,15,45V83a30.09,30.09,0,0,0,30,30H83a30.09,30.09,0,0,0,30-30V45A30.09,30.09,0,0,0,83,15Z"></path><path class="cls-1" d="M90.14,32a5.73,5.73,0,1,0,5.73,5.73A5.73,5.73,0,0,0,90.14,32Z"></path><path class="cls-1" d="M64.27,46.47A17.68,17.68,0,1,1,46.6,64.14,17.7,17.7,0,0,1,64.27,46.47m0-8A25.68,25.68,0,1,0,90,64.14,25.68,25.68,0,0,0,64.27,38.47Z"></path></svg>
+            </a>
+            
+            <a href="https://x.com/aw3rque" target="_blank" rel="noopener noreferrer" onclick="window.invokeNative('openUrl', 'https://x.com/aw3rque')">
+              <svg fill="#FFFFFF" id="twitter" class="socialmedia-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24px" height="24px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve"><path d="M14.095479,10.316482L22.286354,1h-1.940718l-7.115352,8.087682L7.551414,1H1l8.589488,12.231093L1,23h1.940717  l7.509372-8.542861L16.448587,23H23L14.095479,10.316482z M11.436522,13.338465l-0.871624-1.218704l-6.924311-9.68815h2.981339  l5.58978,7.82155l0.867949,1.218704l7.26506,10.166271h-2.981339L11.436522,13.338465z"></path></svg>
+            </a>
+          </div>
+      </div>
+    </div>
+  
+
+</div></div>
+  </body>
+</html>

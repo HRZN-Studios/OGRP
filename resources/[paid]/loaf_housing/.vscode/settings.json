@@ -1,8 +1,0 @@
-{
-	"Lua.workspace.library": [
-		"G:/FiveM/Servers/ESX/ServerFiles/resources/[txRecipe]/[standalone]/oxmysql/lib/define.lua",
-		"C:/Users/medin/AppData/Roaming/Code - Insiders/User/globalStorage/sumneko.lua/addonManager/addons/fivem/module/library"
-	],
-	"Lua.workspace.checkThirdParty": false,
-	"Lua.diagnostics.globals": ["lib", "Locales", "debugprint"]
-}

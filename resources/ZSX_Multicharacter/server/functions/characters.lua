@@ -349,12 +349,6 @@ Characters.ConvertProperties = function(identifier, charId)
         end
     end
     if GetResourceState('loaf_housing') == 'started' then
-        properties = {
-            name = 'home',
-            type = "property",
-            label = 'responseData.label',
-            coords = vector3(-476.5466, 412.8358, 103.1219),
-        }
     end
     return properties
 end
