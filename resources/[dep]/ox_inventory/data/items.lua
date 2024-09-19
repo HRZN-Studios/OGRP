@@ -187,6 +187,50 @@ return {
 		}
 	},
 
+	-- #ANCHOR - PD Items
+
+	['handcuffs'] = {
+		label = 'Cuffs',
+		weight = 1500,
+		stack = true,
+	},
+
+	['zipties'] = {
+		label = 'Zip Cuffs',
+		weight = 1500,
+		stack = true,
+	},
+
+	['cuffkey'] = {
+		label = 'Cuff Key',
+		weight = 10,
+		stack = false,
+	},
+
+	['pliers'] = {
+		label = 'Pliers',
+		weight = 100,
+		stack = false,
+	},
+	
+	['hmkey'] = {
+		label = 'Handmade Key',
+		weight = 10,
+		stack = false,
+	},
+	
+	['cutters'] = {
+		label = 'Bolt Cutters',
+		weight = 200,
+		stack = false,
+	},
+
+	['cuffkey'] = {
+		label = 'Cuff Key',
+		weight = 10,
+		stack = false,
+	},
+
 	['radio'] = {
 		label = 'Radio',
 		weight = 1000,
@@ -201,6 +245,18 @@ return {
 		client = {
 			anim = { dict = 'clothingshirt', clip = 'try_shirt_positive_d' },
 			usetime = 3500
+		}
+	},
+
+	-- #ANCHOR - Rahe Items
+
+	['app_tablet'] = {
+		label = 'Tablet',
+		weight = 0,
+		description = 'You can install different applications onto this.',
+		stack = false,
+		client = {
+			export = 'rahe-tablet.tablet'
 		}
 	},
 

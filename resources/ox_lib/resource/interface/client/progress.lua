@@ -153,15 +153,83 @@ function lib.progressBar(data)
     while progress ~= nil do Wait(0) end
 
     if not interruptProgress(data) then
-        SendNUIMessage({
-            action = 'progress',
-            data = {
-                label = data.label,
-                duration = data.duration
-            }
-        })
+        if GetResourceState("17mov_Hud") == "started" then
+            local prop = {}
+            local propTwo = {}
 
-        return startProgress(data)
+            if data.prop then
+                if data.prop[1] then
+                    prop.model = data.prop[1].model
+                    prop.bone = data.prop[1].bone
+                    prop.coords = data.prop[1].pos
+                    prop.rotation = data.prop[1].rot
+
+                    if data.prop[2] then
+                        propTwo.model = data.prop[2].model
+                        propTwo.bone = data.prop[2].bone
+                        propTwo.coords = data.prop[2].pos
+                        propTwo.rotation = data.prop[2].rot
+                    end
+                else
+                    prop.model = data.prop.model
+                    prop.bone = data.prop.bone
+                    prop.coords = data.prop.pos
+                    prop.rotation = data.prop.rot
+                end
+            end
+
+            local action = {
+                duration = data.duration,
+                label = data.label,
+                useWhileDead = data.useWhileDead,
+                canCancel = data.canCancel,
+                controlDisables = {
+                    disableMovement = data.disable?.move,
+                    disableCarMovement = data.disable?.car,
+                    disableMouse = data.disable?.mouse,
+                    disableCombat = data.disable?.combat,
+                },
+                animation = {
+                    animDict = data.anim?.dict,
+                    anim = data.anim?.clip,
+                    flags = data.anim?.flag,
+                    task = data.anim?.scenario,
+                },
+                prop = prop,
+                propTwo = propTwo,
+            }
+
+            local success = nil
+            progress = action
+            playerState.invBusy = true
+
+            exports["17mov_Hud"]:StartProgress(action, nil, nil, function(wasCanceled)
+                success = not wasCanceled
+                progress = nil
+                playerState.invBusy = false
+            end)
+
+            while progress do
+                Wait(0)
+            end
+
+            if progress == false then
+                success = false
+                exports["17mov_Hud"]:StopProgress()
+            end
+
+            return success
+        else
+            SendNUIMessage({
+                action = 'progress',
+                data = {
+                    label = data.label,
+                    duration = data.duration
+                }
+            })
+
+            return startProgress(data)
+        end
     end
 end
 
@@ -187,6 +255,10 @@ end
 function lib.cancelProgress()
     if not progress then
         error('No progress bar is active')
+    end
+
+    if GetResourceState("17mov_Hud") == "started" then
+        exports["17mov_Hud"]:StopProgress()
     end
 
     progress = false
@@ -234,14 +306,14 @@ AddStateBagChangeHandler('lib:progressProps', nil, function(bagName, key, value,
 
     local ped = GetPlayerPed(ply)
     local serverId = GetPlayerServerId(ply)
-    
+
     if not value then
         return deleteProgressProps(serverId)
     end
-    
+
     createdProps[serverId] = {}
     local playerProps = createdProps[serverId]
-    
+
     if value.model then
         playerProps[#playerProps+1] = createProp(ped, value)
     else

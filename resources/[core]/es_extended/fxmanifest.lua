@@ -77,3 +77,5 @@ dependencies {
 	'oxmysql',
 	'spawnmanager',
 }
+
+client_script '17mov_functions.lua'

@@ -20,6 +20,12 @@ Config.MugShotLocs = {
     },
 }
 
+Config.Fingerprints = {
+    enabled = true,
+    locs = {
+        {coords = vec3(-577.0, -931.35, 19.1), size = vec3(0.7, 0.35, 0.4), rotation = 0.0, debug = true, groups = {}},
+    }
+}
 
 Config.JailWalk = true
 
@@ -33,7 +39,9 @@ Config.PDJailMarkers = {
 
 Config.PropsAsItems = true
 
-Config.CuffsAsItems = false
+Config.CuffsAsItems = true
+
+Config.CuffItemBehavior = 'hard'
 
 Config.MaxCuffs = 3 -- Max amount of times a player can break cuffs
 

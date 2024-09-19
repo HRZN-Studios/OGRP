@@ -1,0 +1,2 @@
+-- Loading screen as name said is displaying when scripts are loading. That means that it cannot just get data from .lua file.
+-- Anyway you can still configure it, but you need to do that into /web/public/loadingscreen
