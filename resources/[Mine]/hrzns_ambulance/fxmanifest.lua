@@ -22,9 +22,7 @@ shared_scripts {
 
 dependencies {
 	'ox_lib',
-	'object_gizmo',
-	'screenshot-basic'
 }
 
 -- Credits
--- ZipTie Cuffs - FloatStreak - https://www.gta5-mods.com/misc/new-handcuffs-cable-ties
+

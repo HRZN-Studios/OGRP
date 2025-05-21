@@ -11,8 +11,40 @@ lib.callback.register('hrzns_police:GetPlayerData', function(id)
     return data
 end)
 
+lib.callback.register('hrzns_police:GetPlayerMeta', function(source, id)
+    local data = {}
+    if id == nil then
+        id = source
+    end
+    local xPlayer = ESX.GetPlayerFromId(id)
+    print(xPlayer.getMeta('Cuffed', 'is'))
+    print(xPlayer.getMeta('Cuffed', 'item'))
+    print(xPlayer.getMeta('Cuffed', 'type'))
+    print(json.encode(xPlayer.getMeta(),{indent=true}))
+    data = xPlayer.getMeta('Cuffed')
+    return data
+end)
+
+RegisterNetEvent('hrzns_police:setMeta', function(data)
+    local xPlayer = ESX.GetPlayerFromId(source)
+    xPlayer.setMeta(data.key, data.value)
+end)
+
+RegisterNetEvent('hrzns_police:deleteObject', function(object)
+    DeleteObject(object)
+end)
+
+
 RegisterNetEvent('hrzns_police:SNotify', function(id, info, title, msg)
     TriggerClientEvent('hrzns_police:Notify', id, info, title, msg)
+end)
+
+RegisterNetEvent('hrzns_police:CreateObject', function(Model, coords)
+    RequestModel(GetHashKey(model))
+    while not HasModelLoaded(GetHashKey(model)) do
+        Wait(0)
+    end
+    local obj = CreateObject(GetHashKey(model), GetEntityCoords(PlayerPedId()), true, false, true)
 end)
 
 RegisterNetEvent('ec', function(id)
@@ -23,14 +55,3 @@ RegisterNetEvent('ec', function(id)
     ClearPedTasks(ped)
 end)
 
-RegisterNetEvent('near', function(coords)
-    print(source, coords)
-    local nearid, nearped, nearcoords = lib.getClosestPlayer(coords, 5, false)
-    print(nearid, nearped, nearcoords)
-    return nearid, nearped, nearcoords
-end)
-
-RegisterCommand('ec', function(source, args, rawCommand)
-    local ped = GetPlayerPed(args[1])
-    ClearPedTasks(ped)
-end, false)

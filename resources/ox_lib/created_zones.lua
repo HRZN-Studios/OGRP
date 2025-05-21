@@ -10,3 +10,21 @@
 	size = vec3(0.7, 0.35, 0.4),
 	rotation = 0.0,
 },
+{
+	name = "weazel cloak1",
+	coords = vec3(-568.1, -911.35, 23.85),
+	size = vec3(2.2, 1, 1.95),
+	rotation = 0.0,
+},
+{
+	name = "weazel cloak 2",
+	coords = vec3(-566.4, -913.5, 23.85),
+	size = vec3(0.85, 2.25, 2.0),
+	rotation = 0.0,
+},
+{
+	name = "weazel cloak 3",
+	coords = vec3(-568.15, -917.4, 23.85),
+	size = vec3(2.25, 0.85, 2.0),
+	rotation = 0.0,
+},

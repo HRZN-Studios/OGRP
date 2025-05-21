@@ -1,5 +1,5 @@
 Skin = {}
-Skin.Enabled = true                                                              -- Set to false if you want use some third-party skin creator resource. Might need additional configuration.
+Skin.Enabled = false                                                              -- Set to false if you want use some third-party skin creator resource. Might need additional configuration.
 Skin.EnableRefreshSkinCommand = true                                             -- /refreshSkin command can be turned off here
 Skin.EnableAutoMaskClipping = true                                               -- Fix for face clipping trough the mask.
 Skin.GenerateRandomSkin = true                                                   -- Set to false to let players start customization from default freemdoe ped, not the randomized

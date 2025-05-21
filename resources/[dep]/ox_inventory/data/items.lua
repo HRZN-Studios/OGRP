@@ -189,13 +189,13 @@ return {
 
 	-- #ANCHOR - PD Items
 
-	['handcuffs'] = {
+	['cuffs'] = {
 		label = 'Cuffs',
 		weight = 1500,
 		stack = true,
 	},
 
-	['zipties'] = {
+	['zip'] = {
 		label = 'Zip Cuffs',
 		weight = 1500,
 		stack = true,

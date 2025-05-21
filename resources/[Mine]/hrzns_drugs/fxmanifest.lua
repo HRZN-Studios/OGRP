@@ -22,8 +22,8 @@ shared_scripts {
 
 dependencies {
 	'ox_lib',
-	'object_gizmo',
-	'screenshot-basic'
+	-- 'object_gizmo',
+	-- 'screenshot-basic'
 }
 
 -- Credits

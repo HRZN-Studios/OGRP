@@ -20,7 +20,7 @@ Config.ResourcesToDisable = {
     ["esx_loadingscreen"] = true,
     ["skinchanger"] = true,
 
-    ["illenium-appearance"] = true
+    ["illenium-appearance"] = false
 }
 
 Config.StoresBlips = {

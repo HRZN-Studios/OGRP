@@ -1,7 +1,7 @@
 
 RegisterNetEvent('hrzns_police:mugshotSV', function(location, id, notes)
     if id == source then 
-        TriggerClientEvent('hrzns_police:Notify', source, 'error', 'You cannot mug yourself')
+        TriggerClientEvent('hrzns_police:Notify', id, 'error', 'Police', 'You cannot mug yourself')
     else
         if Config.Framework == 'QBCore' then
             local response

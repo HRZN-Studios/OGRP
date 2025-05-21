@@ -1,13 +1,39 @@
-InProp = false
+isDead = false
 
-
-RegisterNetEvent('hrzns_police:createprop', function(model)
-    createProp(model)
+AddEventHandler('esx:onPlayerDeath', function(data)
+    isDead = true
+    local data = ESX.GetPlayerData()
+    local dumpedTable = ESX.DumpTable(data)
+    print(dumpedTable)
+    died()
+    ESX.SetPlayerData('dead', true)
 end)
 
-function propui()
-    while InProp do 
-        Wait(0)
+RegisterNetEvent('hrzns_ambulance:revive', function()
+    local ped = PlayerPedId()
+    SetPlayerInvincible(ped, false)
+    isDead = false
+    ESX.SetPlayerData('dead', false)
+    TriggerEvent('esx_basicneeds:healPlayer')
+    Wait(20)
+    print('revived')
+    ClearPedSecondaryTask(ped)
+    ClearPedBloodDamage(ped)
+    local data = ESX.GetPlayerData()
+    local dumpedTable = ESX.DumpTable(data)
+    print(dumpedTable)
+    print(IsPedFatallyInjured(PlayerPedId()))
+end)
+
+function died()
+    local ped = PlayerPedId()
+    local coords = GetEntityCoords(ped)
+    local heading = GetEntityHeading(ped)
+    NetworkResurrectLocalPlayer(coords.x, coords.y, coords.z, heading, true, false)
+    ClearPedSecondaryTask(ped)
+    SetPlayerInvincible(ped, false)
+    while isDead do
+        Wait(10)
         DisableControlAction(0, 24, true) -- Attack
         DisableControlAction(0, 257, true) -- Attack 2
         DisableControlAction(0, 25, true) -- Aim
@@ -34,18 +60,14 @@ function propui()
         DisableControlAction(0, 34, true) -- A
         DisableControlAction(0, 31, true) -- S 
         DisableControlAction(0, 30, true) -- D 
+        if IsPedInVehicle(ped) == true then
+            loadAnimDict('veh@van@ps@enter_exit')
+            TaskPlayAnim(PlayerPedId(), 'veh@van@ps@enter_exit', 'dead_fall_out', 8.0, -8, -1, 49, 0.0, false, false, false)
+        elseif IsAttached then
+            
+        else
+            SetPedToRagdoll(ped, 1000, 1000, 0, 0, 0, 0)
+        end
     end
 end
 
-
-function createProp(model)
-    local offset = GetEntityCoords(cache.ped) + GetEntityForwardVector(cache.ped) * 3
-    lib.requestModel(model)
-    local obj = CreateObject(model, offset.x, offset.y, offset.z, false, false, false)
-    local data = exports.object_gizmo:useGizmo(obj)
-    DeleteEntity(obj)
-    lib.print.info(data)
-    if data.exit == 'done' then
-        TriggerServerEvent('createprop', data.position, data.rotation, model, true)
-    end
-end

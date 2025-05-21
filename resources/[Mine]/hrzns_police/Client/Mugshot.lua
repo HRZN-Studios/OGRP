@@ -79,7 +79,10 @@ RegisterNetEvent('hrzns_police:mugshot', function(location, copid, copdata, susd
         TaskPlayAnim(ped, "mp_character_creation@lineup@male_a", "loop_raised", 8.0, 8.0, -1, 49, 0, false, false, false)
         Wait(1000)
         exports['screenshot-basic']:requestScreenshotUpload(Config.MugShotOptions.ScreenShotHook, 'files[]', {encoding = 'jpg'}, function(data)
+            
             local Response = json.decode(data)
+            local Responsetable = ESX.DumpTable(Response)
+            print( json.encode(Responsetable))
             local imageURL = Response.attachments[1].url
             print('cb')
             TriggerServerEvent('hrzns_police:muglog', copname, DOB, Sex, Name, notes, imageURL)
@@ -115,9 +118,7 @@ for _, v in pairs(Config.MugShotLocs) do
             size = v.Target.size,
             rotation = v.Target.rotation,
             debug = v.Target.debug,
-            groups = {
-                v.Target.groups,
-            },
+            groups = Config.MugJob,
             options = {
                 {
                     icon = "fa-solid fa-camera",
